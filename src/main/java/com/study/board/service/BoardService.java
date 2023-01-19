@@ -18,11 +18,14 @@ public class BoardService {
 
     public List<Board> boardList() { //게시글 리스트 처리
         return boardRepository.findAll();
-    }
+    } //게시글 리스트 처리
 
-    public Board bardView(Integer id){ //특정 게시글 불러오기
+    public Board boardView(Integer id){ //특정 게시글 불러오기
         return boardRepository.findById(id).get();
-    }
+    } //게시글불러오기
 
+    public void boardDelete(Integer id) {
+        boardRepository.deleteById(id);
+    }
 
 }
