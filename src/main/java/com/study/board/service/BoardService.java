@@ -31,9 +31,13 @@ public class BoardService {
     }
 
     public Page<Board> boardList(Pageable pageable) { //게시글 리스트 처리
+
         return boardRepository.findAll(pageable);
     } //게시글 리스트 처리
 
+    public Page<Board> boardSearchList(String searchKeyboard, Pageable pageable){
+        return boardRepository.findByTitleContaining(searchKeyboard, pageable);
+    }
     public Board boardView(Integer id){ //특정 게시글 불러오기
         return boardRepository.findById(id).get();
     } //게시글불러오기
